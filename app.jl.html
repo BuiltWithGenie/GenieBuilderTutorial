@@ -1,0 +1,115 @@
+<h6>Reactive variables</h6>
+<div class="row">
+    <div class="st-col col-12 col-sm st-module">
+        <p>@in A: {{A}}</p>
+        <p>@in B: {{B}}</p>
+        <p>@in C: {{C}}</p>
+    </div>
+    <div class="st-col col-12 col-sm st-module">
+        <q-slider id="i1ea" color="primary" :label="true" :max="10" :min="1" :step="1" v-model="A"></q-slider>
+        <q-slider id="i5jhd" color="primary" :label="true" :max="10" :min="1" :step="1" v-model="B"></q-slider>
+    </div>
+</div>
+<h6>Inputs</h6>
+<div class="row">
+    <div class="st-col col-12 col-sm st-module">
+        <q-checkbox id="iinzk" color="primary" label="Checked" v-model="checked"></q-checkbox>
+        <q-radio id="i68m9" v-model="radio" color="primary" label="radio 1" val="radio_1"></q-radio>
+        <q-radio id="i68m9-2" v-model="radio" color="primary" label="radio 2" val="radio_2"></q-radio>
+        <q-input id="iyddr" :dense="true" label="Input" v-model="input_text"></q-input>
+        <q-slider id="i19dt" color="primary" :label="true" :max="10" :min="1" :step="1" v-model="N"></q-slider>
+        <q-range id="ick05" color="primary" :label="true" :marker-labels="true" :markers="true" :max="10" :min="1" :step="1" v-model="range"></q-range>
+        <q-select id="iqz7g" label="Choices" :options="choices" v-model="selected_choice"></q-select>
+        <q-btn id="ib4du" color="primary" icon="true" label="button" v-on:click="trigger = true" :loading="trigger"></q-btn>
+        <p>Button process running: {{trigger}}</p>
+    </div>
+    <div class="st-col col-12 col-sm st-module">
+        <q-input iscomposite="true" id="iq5j4" :clearable="true" :filled="true" label="Pick a date" v-model="date_text">
+            <q-icon id="i69kl" class="cursor-pointer" name="event">
+                <q-popup-proxy id="io4gq">
+                    <q-date id="ih7co" mask="YYYY-MM-DD" :no-unset="true" :today-btn="true" v-model="date_text"></q-date>
+                </q-popup-proxy>
+            </q-icon>
+        </q-input>
+        <q-date id="ianlp" mask="YYYY-MM-DD" v-model="date_text"></q-date>
+    </div>
+    <div class="st-col col-12 col-sm st-module">
+        <q-input id="ijmre" :clearable="true" :filled="true" label="Pick a time" v-model="time_text">
+            <q-icon id="iu26p" class="cursor-pointer" name="alarm">
+                <q-popup-proxy id="imcvy">
+                    <q-time id="ikzkf" v-model="undefined" mask="HH:mm:ss"></q-time>
+                </q-popup-proxy>
+            </q-icon>
+        </q-input>
+        <q-time id="i12yu" mask="HH:mm" v-model="time_text"></q-time>
+    </div>
+</div>
+<h6>Plots</h6>
+<div class="row">
+    <div class="st-col col-12 col-sm st-module">
+        <plotly id="id8oh" data="W3siZ2J0eXBlIjoiTGluZSBDaGFydCIsIngiOiIkX3t4fSIsInkiOiIkX3t5fSIsInR5cGUiOiJzY2F0dGVyIiwibW9kZSI6ImxpbmVzIiwibmFtZSI6IlRyYWNlIn1d" config="e30=" layout="eyJ0aXRsZSI6Ik15IENoYXJ0In0="></plotly>
+        <plotly id="imroc" data="undefined" layout="undefined" config="undefined"></plotly>
+    </div>
+    <div class="st-col col-12 col-sm st-module">
+        <q-btn id="i7c08" color="primary" label="Add data" v-on:click="add_data = true"></q-btn>
+        <q-btn id="is8jf" color="primary" label="Reset data" v-on:click="reset_data = true"></q-btn>
+    </div>
+</div>
+<div class="row">
+    <div class="st-col col-12 col-sm st-module">
+        <plotly id="ig5pq" :data="traces" :layout="layout" config="eyJhdXRvc2l6YWJsZSI6dHJ1ZSwiZGlzcGxheWxvZ28iOnRydWUsInNjcm9sbFpvb20iOnRydWUsImVkaXRhYmxlIjp0cnVlLCJkaXNwbGF5TW9kZUJhciI6dHJ1ZX0="></plotly>
+    </div>
+    <div class="st-col col-12 col-sm st-module">
+        <q-slider id="imoco" color="primary" :label="true" :max="10" :min="1" :step="1" v-model="N_traces"></q-slider>
+    </div>
+</div>
+<h6>Flow control</h6>
+<div class="row">
+    <div class="st-col col-12 col-sm st-module">
+        <q-toggle id="ijyyy" color="blue" label="Show image" v-model="show"></q-toggle>
+        <div conditional="" iscomposite="true" id="ikwfg" v-if="show">
+            <q-img id="iy7xf" src="https://cdn.quasar.dev/img/parallax2.jpg" width="50px"></q-img>
+        </div>
+    </div>
+    <div class="st-col col-12 col-sm st-module">
+        <q-slider id="iqyg5" color="primary" :label="true" :max="4" :min="1" :step="1" v-model="N_blocks"></q-slider>
+        <div looper="" iscomposite="true" id="i2q8w" v-for="item in indexes">
+            <q-img id="i073k" src="https://cdn.quasar.dev/img/parallax2.jpg" width="50px"></q-img>
+        </div>
+    </div>
+</div>
+<h6>Tabs</h6>
+<st-tabs id="ikxpx" class="bg-primary text-white shadow-2" :ids="tab_ids" :labels="tab_labels" v-model="selected_tab"></st-tabs>
+<q-tab-panels id="if8ec" v-model="selected_tab">
+    <q-tab-panel id="ihkl" name="tab_cars">
+        <q-icon id="iq6t" color="primary" name="car_rental" size="200px"></q-icon>
+    </q-tab-panel>
+    <q-tab-panel id="i3nw" name="tab_scooters">
+        <q-icon id="ixy1" color="primary" name="moped" size="200px"></q-icon>
+    </q-tab-panel>
+    <q-tab-panel id="itoj" name="tab_bikes">
+        <q-icon id="i2gh" color="primary" name="bike_scooter" size="200px"></q-icon>
+    </q-tab-panel>
+</q-tab-panels>
+<h6>Popup</h6>
+<div class="row">
+    <div class="st-col col-12 col-sm st-module">
+        <q-btn id="ibru7" color="primary" icon="true" label="button" v-on:click="">
+            <q-popup-proxy id="i63f">
+                <q-img id="ilqk" src="https://cdn.quasar.dev/img/parallax2.jpg"></q-img>
+            </q-popup-proxy>
+        </q-btn>
+    </div>
+</div>
+<h6>Table</h6>
+<div class="row">
+    <div class="st-col col-12 col-sm st-module">
+        <st-table id="i0n3h" :dense="true" server_side_event="request" :loading="false" :data_table="dt1"></st-table>
+    </div>
+</div>
+<h6>Table with server-side pagination (enable in code)</h6>
+<div class="row">
+    <div class="st-col col-12 col-sm st-module">
+        <st-table id="ik48t" :dense="true" server_side_event="request" :loading="false" :data_table="dt2"></st-table>
+    </div>
+</div>
