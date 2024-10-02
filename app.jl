@@ -4,12 +4,14 @@ module App
 using GenieFramework, Dates, PlotlyBase, DataFrames
 @genietools
 
-# == Code and data import ==
+# == Code import ==
 # add your data analysis code here or in the lib folder. Code in lib/ will be
-# automatically loaded 
-function mean_value(x)
-    sum(x) / length(x)
+# automatically loaded into the Main scope
+function data_analysis()
+    return "Mockup data analysis function"
 end
+
+# Data import and definition
 const data = sort!(DataFrame(rand(1_000, 2), ["x1", "x2"]))::DataFrame
 
 
@@ -75,8 +77,8 @@ const data = sort!(DataFrame(rand(1_000, 2), ["x1", "x2"]))::DataFrame
     # Adding N traces in a loop
     @onchange N_traces begin
       traces[!] = [] # With the [!] suffix we reassign the array without triggering a UI update
-      for i in 1:N
-        push!(traces, scatter(x=x, y=randn(10)))
+      for i in 1:N_traces
+        push!(traces, scatter(x=collect(1:10), y=randn(10)))
       end
       @push traces   # Update the traces vector when all traces are generated
     end
