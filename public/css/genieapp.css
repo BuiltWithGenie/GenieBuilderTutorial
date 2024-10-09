@@ -1,0 +1,47 @@
+  :root.stipple-core{
+    --q-color-primary: #140000;
+    --q-color-secondary: #1f3320;
+    --q-color-accent: #bea7e5;
+    --q-color-dark: #022a50;
+    --q-color-info: #373b44;
+    --q-color-white: #ffffff;
+    --q-color-black: #302f2f;
+    --q-color-positive: #72c8a9;
+    --q-color-negative: #c10015;
+    --q-color-warning: #f2c037;
+    --q-primary: var(--q-color-primary);
+    --q-secondary: var(--q-color-secondary);
+    --q-accent: var(--q-color-accent);
+    --q-positive: var(--q-color-positive);
+    --q-negative: var(--q-color-negative);
+    --q-info: var(--q-color-info);
+    --q-warning: var(--q-color-warning);
+    --q-dark: var(--q-color-dark);
+    --q-dark-page: #121212;
+  }
+  :root.stipple-core{
+    --st-text-1: #302f2f;
+    --st-text-2: #575454;
+    --st-text-3: #5a6460;
+  }
+  :root.stipple-core{
+    --st-dashboard-bg: #ffffff;
+    --st-dashboard-line: #e2e2e2;
+    --st-dashboard-module: #fcfcfc;
+    --st-skeleton: #e1e5ee;
+    --st-slider--track: #cad2d2;
+  }
+  p, h1, h2, h3, h4, h5, h6, span, a, li, body{
+  }
+  :root.stipple-core h1{
+  }
+  :root.stipple-core h2{
+  }
+  :root.stipple-core h3{
+  }
+  :root.stipple-core h4{
+  }
+  :root.stipple-core h5{
+  }
+  :root.stipple-core p{
+  }

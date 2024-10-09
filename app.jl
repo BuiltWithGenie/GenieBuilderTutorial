@@ -4,6 +4,10 @@ module App
 using GenieFramework, Dates, PlotlyBase, DataFrames
 @genietools
 
+# == Configuration options ==
+StippleUI.Tables.set_default_rows_per_page(20)
+StippleUI.Tables.set_max_rows_client_side(100)
+
 # == Code import ==
 # add your data analysis code here or in the lib folder. Code in lib/ will be
 # automatically loaded into the Main scope
@@ -13,7 +17,7 @@ end
 
 # Data import and definition
 const data = sort!(DataFrame(rand(1_000, 2), ["x1", "x2"]))::DataFrame
-
+const my_constant = 4
 
 # == Reactive code ==
 # add reactive code to make the UI interactive
@@ -71,7 +75,7 @@ const data = sort!(DataFrame(rand(1_000, 2), ["x1", "x2"]))::DataFrame
     # PlotlyBase plots
     # You can also define the traces and layout of the plot and use the Bound Plot component
     # Useful when you have a dynamic number of traces
-    @out traces = [scatter(x=collect(1:10),y=randn(10))] # always an array of traces
+    @out traces = [scatter(x=collect(1:10),y=randn(10)),scatter(x=collect(1:10),y=randn(10))] # always an array of traces
     @out layout = PlotlyBase.Layout(title="My Plot", xaxis_title="x", yaxis_title="y")
     @in N_traces = 1
     # Adding N traces in a loop
@@ -100,9 +104,6 @@ const data = sort!(DataFrame(rand(1_000, 2), ["x1", "x2"]))::DataFrame
     @out dt1 = DataTable(data)
 
     # Table with server-side pagination.
-    # First, add this at the top of this file to limit the number of rows sent to the browser:
-    # StippleUI.Tables.set_default_rows_per_page(20)
-    # StippleUI.Tables.set_max_rows_client_side(100)
     @out dt2 = DataTable(data; server_side = true)
     @out loading_table = false
     # The dt2_request event is triggered when the pagination button is clicked on the table

@@ -1,17 +1,30 @@
 <h6>Reactive variables</h6>
-<div class="row">
-    <div class="st-col col-12 col-sm st-module">
+<div id="i6sl" class="row">
+    <div id="i5h6" class="st-col col-12 col-sm st-module">
         <p>@in A: {{A}}</p>
-        <p>@in B: {{B}}</p>
+        <p>@out B: {{B}}</p>
         <p>@in C: {{C}}</p>
     </div>
-    <div class="st-col col-12 col-sm st-module">
-        <q-slider id="i1ea" color="primary" :label="true" :max="10" :min="1" :step="1" v-model="A"></q-slider>
+    <div id="i8v02" class="st-col col-12 col-sm st-module">
+        <q-badge id="i7w7v" icon="danger" color="primary" label="A "></q-badge>
+        <q-slider id="i1ea" color="primary" :label="true" :max="10" :min="1" :step="1" v-model="A" :markers="true"></q-slider>
+        <q-badge id="i6c7b8" icon="danger" color="primary" label="B "></q-badge>
         <q-slider id="i5jhd" color="primary" :label="true" :max="10" :min="1" :step="1" v-model="B"></q-slider>
+    </div>
+    <div class="st-col col-12 col-sm st-module">
+        <p>This section demonstrates the use of reactive variables that enable real-time, two-way synchronization between the browser UI and the Julia backend.&nbsp;</p>
+        <div>Variable A is an input variable (@in), which can be modified both from the browser and the backend.&nbsp;</div>
+        <div><br></div>
+        <div>
+            <p>Variable B is an output variable (@out), modifiable only by the backend. Any changes made in the browser are not propagated to the Julia code.</p>
+        </div>
+        <div><br></div>
+        <div>The variable C is automatically recalculated whenever A or B changes, illustrating how reactive handlers can compute derived values based on reactive variables.</div>
+        <p></p>
     </div>
 </div>
 <h6>Inputs</h6>
-<div class="row">
+<div id="igne6" class="row">
     <div class="st-col col-12 col-sm st-module">
         <q-checkbox id="iinzk" color="primary" label="Checked" v-model="checked"></q-checkbox>
         <q-radio id="i68m9" v-model="radio" color="primary" label="radio 1" val="radio_1"></q-radio>
@@ -33,7 +46,7 @@
         </q-input>
         <q-date id="ianlp" mask="YYYY-MM-DD" v-model="date_text"></q-date>
     </div>
-    <div class="st-col col-12 col-sm st-module">
+    <div id="iioc3" class="st-col col-12 col-sm st-module">
         <q-input id="ijmre" :clearable="true" :filled="true" label="Pick a time" v-model="time_text">
             <q-icon id="iu26p" class="cursor-pointer" name="alarm">
                 <q-popup-proxy id="imcvy">
@@ -44,23 +57,35 @@
         <q-time id="i12yu" mask="HH:mm" v-model="time_text"></q-time>
     </div>
 </div>
+<div class="row">
+    <div class="st-col col-12 col-sm st-module">
+        <p>This section showcases a variety of input components such as checkboxes, radio buttons, text inputs, sliders, range selectors, dropdowns, and buttons. Each input is bound to a reactive variable in the Julia backend, allowing for immediate, real-time interaction between the user interface and the server.&nbsp;</p>
+    </div>
+</div>
 <h6>Plots</h6>
 <div class="row">
     <div class="st-col col-12 col-sm st-module">
         <plotly id="id8oh" data="W3siZ2J0eXBlIjoiTGluZSBDaGFydCIsIngiOiIkX3t4fSIsInkiOiIkX3t5fSIsInR5cGUiOiJzY2F0dGVyIiwibW9kZSI6ImxpbmVzIiwibmFtZSI6IlRyYWNlIn1d" config="e30=" layout="eyJ0aXRsZSI6Ik15IENoYXJ0In0="></plotly>
     </div>
-    <div class="st-col col-12 col-sm st-module">
+    <div class="st-col st-module col-2">
         <q-btn id="i7c08" color="primary" label="Add data" v-on:click="add_data = true"></q-btn>
         <q-btn id="is8jf" color="primary" label="Reset data" v-on:click="reset_data = true"></q-btn>
+    </div>
+    <div class="st-col st-module col-3">
+        <p id="i5jcf">This section presents two types of plots using Plotly: a simple interactive plot and a more complex PlotlyBase plot with dynamic traces. </p>
+        <p>The first plot allows users to add or reset data points, demonstrating how reactive variables can update plot data in real-time.</p>
+        <p>The second plot showcases dynamic generation of multiple traces based on a slider input.</p>
     </div>
 </div>
 <div class="row">
     <div class="st-col col-12 col-sm st-module">
         <plotly id="ig5pq" :data="traces" :layout="layout" config="eyJhdXRvc2l6YWJsZSI6dHJ1ZSwiZGlzcGxheWxvZ28iOnRydWUsInNjcm9sbFpvb20iOnRydWUsImVkaXRhYmxlIjp0cnVlLCJkaXNwbGF5TW9kZUJhciI6dHJ1ZX0="></plotly>
     </div>
-    <div class="st-col col-12 col-sm st-module">
+    <div class="st-col st-module col-2">
+        <q-badge icon="danger" id="ixdzcz" color="primary" label="Number of traces"></q-badge>
         <q-slider id="imoco" color="primary" :label="true" :max="10" :min="1" :step="1" v-model="N_traces"></q-slider>
     </div>
+    <div class="st-module st-col col-3"></div>
 </div>
 <h6>Flow control</h6>
 <div class="row">
@@ -76,38 +101,66 @@
             <q-img id="i073k" src="https://cdn.quasar.dev/img/parallax2.jpg" width="50px"></q-img>
         </div>
     </div>
+    <div class="st-col col-12 col-sm st-module">
+        <p id="ifvbg">This section demonstrates flow control features such as conditional rendering and looping within the UI. </p>
+        <p>Using a toggle switch, users can show or hide an image, illustrating conditional display based on reactive variables.</p>
+        <p>Additionally, the number of image blocks displayed is dynamically adjusted using a slider, showcasing how loops can generate UI elements based on reactive data.</p>
+    </div>
 </div>
 <h6>Tabs</h6>
-<st-tabs id="ikxpx" class="bg-primary text-white shadow-2" :ids="tab_ids" :labels="tab_labels" v-model="selected_tab"></st-tabs>
-<q-tab-panels id="if8ec" v-model="selected_tab">
-    <q-tab-panel id="ihkl" name="tab_cars">
-        <q-icon id="iq6t" color="primary" name="car_rental" size="200px"></q-icon>
-    </q-tab-panel>
-    <q-tab-panel id="i3nw" name="tab_scooters">
-        <q-icon id="ixy1" color="primary" name="moped" size="200px"></q-icon>
-    </q-tab-panel>
-    <q-tab-panel id="itoj" name="tab_bikes">
-        <q-icon id="i2gh" color="primary" name="bike_scooter" size="200px"></q-icon>
-    </q-tab-panel>
-</q-tab-panels>
+<div class="row">
+    <div class="st-col col-12 col-sm st-module">
+        <st-tabs id="ikxpx" class="bg-primary text-white shadow-2" :ids="tab_ids" :labels="tab_labels" v-model="selected_tab"></st-tabs>
+        <q-tab-panels id="if8ec" v-model="selected_tab">
+            <q-tab-panel id="ihkl" name="tab_cars">
+                <q-icon id="iq6t" color="primary" name="car_rental" size="200px"></q-icon>
+                <q-btn id="i9yh" color="primary" icon="true" label="button" v-on:click=""></q-btn>
+            </q-tab-panel>
+            <q-tab-panel id="i3nw" name="tab_scooters">
+                <q-icon id="ixy1" color="primary" name="moped" size="200px"></q-icon>
+            </q-tab-panel>
+            <q-tab-panel id="itoj" name="tab_bikes">
+                <q-icon id="i2gh" color="primary" name="bike_scooter" size="200px"></q-icon>
+            </q-tab-panel>
+        </q-tab-panels>
+    </div>
+</div>
+<div class="row">
+    <div class="st-col col-12 col-sm st-module">
+        <p>This section illustrates the implementation of a tabbed interface where the content displayed changes dynamically based on the selected tab. The tabs are bound to reactive variables in the Julia backend, allowing the server to respond to tab selection changes.</p>
+    </div>
+</div>
 <h6>Popup</h6>
 <div class="row">
     <div class="st-col col-12 col-sm st-module">
         <q-btn id="ibru7" color="primary" label="Click me!">
             <q-popup-proxy id="i63f">
-            <p>Popup content</p>
+                <p>Popup content</p>
                 <q-img id="ilqk" src="https://cdn.quasar.dev/img/parallax2.jpg"></q-img>
             </q-popup-proxy>
         </q-btn>
+    </div>
+    <div class="st-col col-12 col-sm st-module">
+        <p>This section features a popup component that appears when a button is clicked, containing both text and an image.</p>
     </div>
 </div>
 <h6>Table</h6>
 <div class="row">
     <div class="st-col col-12 col-sm st-module">
+        <p>This section displays data from a DataFrame defined in the Julia backend using the st-table component. The table supports built-in features such as sorting, filtering, and pagination, allowing users to interactively explore the dataset.&nbsp;</p>
+    </div>
+</div>
+<div class="row">
+    <div class="st-col col-12 col-sm st-module">
         <st-table id="i0n3h" :dense="true" server_side_event="request" :loading="false" :data_table="dt1"></st-table>
     </div>
 </div>
-<h6>Table with server-side pagination (enable in code)</h6>
+<h6>Table with server-side pagination</h6>
+<div class="row">
+    <div class="st-col col-12 col-sm st-module">
+        <p>This section demonstrates server-side pagination for efficient handling of large datasets. Instead of loading all data at once, the table loads data in chunks as the user navigates through pages. This approach reduces initial load times and minimizes memory usage in the browser. The reactive event handlers manage data requests and updates between the UI and the backend seamlessly.</p>
+    </div>
+</div>
 <div class="row">
     <div class="st-col col-12 col-sm st-module">
         <st-table id="ik48t" :dense="true" server_side_event="request" :loading="false" :data_table="dt2"></st-table>
