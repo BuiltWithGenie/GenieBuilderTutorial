@@ -11,8 +11,8 @@ StippleUI.Tables.set_max_rows_client_side(100)
 # == Code import ==
 # add your data analysis code here or in the lib folder. Code in lib/ will be
 # automatically loaded into the Main scope
-function data_analysis()
-    return "Mockup data analysis function"
+function data_analysis(A,B)
+    return A+B
 end
 
 # Data import and definition
@@ -24,17 +24,31 @@ const my_constant = 4
 @app begin
     # == Reactive variables ==
     # reactive variables exist in both the Julia backend and the browser with two-way synchronization
+    # each user session has its own copy of the reactive variables
     # @out variables can only be modified by the backend
     # @in variables can be modified by both the backend and the browser
-    # variables must be initialized with constant values, or variables defined outside of the @app block
+    # IMPORTANT: variables must be initialized with constant values, or variables defined outside of the @app block
     @in A =  0.0
     @out B = 8
     @out C = 0.0
+    @out msg = ""
     # == Reactive handlers ==
     # reactive handlers watch a variable and execute a block of code when
     # its value changes
     @onchange A, B begin
-        C = A+B
+        C = data_analysis(A, B)
+    end
+    # you can also trigger handlers from another handler by changing the associated variable
+    @onchange C begin
+        msg = "C changed to $C"
+    end
+    # == Private variables ==
+    # private variables are not sent to the browser. This useful for storing data that is unique to each user session
+    @private D = 0
+    # they behave like reactive variables, so you can also attach handlers to them. Since they are not present in the 
+    # browser, they can only be modified in the Julia code
+    @onchange D begin
+        println("D changed to $D")
     end
 
     # Inputs
