@@ -1,4 +1,16 @@
-<h6>Reactive variables</h6>
+<nav>
+    <div id="iwo8">
+        <div id="inlv"><a href="#reactive-variables">Reactive variables</a></div>
+        <div id="ih1yf"><a href="#inputs">Inputs</a></div>
+        <div id="ipif1"><a href="#plots">Plots</a></div>
+        <div id="i5c66"><a href="#flow-control">Flow control</a></div>
+        <div id="ixnh3"><a href="#tabs">Tabs</a></div>
+        <div id="ivr34"><a href="#popup">Popup</a></div>
+        <div id="io4tr"><a href="#table">Table</a></div>
+        <div><a href="#table-server-side">Table with server-side pagination</a></div>
+    </div>
+</nav>
+<h6 id="reactive-variables">Reactive variables</h6>
 <div id="i6sl" class="row">
     <div class="st-col col-12 col-sm st-module">
         <p>This section demonstrates the use of reactive variables that enable real-time, two-way synchronization between the browser UI and the Julia backend.&nbsp;</p>
@@ -9,7 +21,7 @@
         </div>
         <div><br></div>
         <div>
-            <p>Variable C is automatically recalculated whenever A changes.</p>
+            <p>Variable C is automatically recalculated whenever A changes. Changes to B won't trigger recalculation.</p>
         </div>
         <p></p>
     </div>
@@ -26,7 +38,7 @@
         <q-slider id="i5jhd" color="primary" :label="true" :max="10" :min="1" :step="1" v-model="B"></q-slider>
     </div>
 </div>
-<h6>Inputs</h6>
+<h6 id="inputs">Inputs</h6>
 <div class="row">
     <div class="st-col col-12 col-sm st-module">
         <p>This section showcases a variety of input components such as checkboxes, radio buttons, text inputs, sliders, range selectors, dropdowns, and buttons. Each input is bound to a reactive variable in the Julia backend, allowing for immediate, real-time interaction between the user interface and the server.&nbsp;</p>
@@ -66,7 +78,7 @@
         <q-time id="i12yu" class="q-mt-md" mask="HH:mm" v-model="time_text"></q-time>
     </div>
 </div>
-<h6>Plots</h6>
+<h6 id="plots">Plots</h6>
 <div class="row">
     <div class="st-col st-module col-12">
         <p id="i5jcf"></p>
@@ -96,7 +108,7 @@
         <q-slider id="imoco" color="primary" :label="true" :max="10" :min="1" :step="1" v-model="N_traces"></q-slider>
     </div>
 </div>
-<h6>Flow control</h6>
+<h6 id="flow-control">Flow control</h6>
 <div class="row">
     <div class="st-col col-12 col-sm st-module">
         <p>The Conditional component is a container that shows or hides its contents according to the value of its binding. The same binding can be attached to another control, such as a toggle, to manually control visibility.</p>
@@ -117,9 +129,11 @@
         </div>
     </div>
 </div>
-<h6>Tabs</h6>
-<div class="st-col col-12 col-sm st-module">
-    <p>Tabs enable the implementation of a tabbed interface where the content displayed changes dynamically based on the selected tab. The tabs are bound to reactive variables in the Julia backend, allowing the server to respond to tab selection changes.</p>
+<h6 id="tabs">Tabs</h6>
+<div class="row">
+    <div class="st-col col-12 col-sm st-module">
+        <p>Tabs enable the implementation of a tabbed interface where the content displayed changes dynamically based on the selected tab. The tabs are bound to reactive variables in the Julia backend, allowing the server to respond to tab selection changes.</p>
+    </div>
 </div>
 <div class="row">
     <div class="st-col col-12 col-sm st-module">
@@ -127,7 +141,6 @@
         <q-tab-panels id="if8ec" v-model="selected_tab">
             <q-tab-panel id="ihkl" name="tab_cars">
                 <q-icon id="iq6t" color="primary" name="car_rental" size="200px"></q-icon>
-                <q-btn id="i9yh" color="primary" icon="true" label="button" v-on:click=""></q-btn>
             </q-tab-panel>
             <q-tab-panel id="i3nw" name="tab_scooters">
                 <q-icon id="ixy1" color="primary" name="moped" size="200px"></q-icon>
@@ -139,7 +152,7 @@
     </div>
 </div>
 <div class="row"></div>
-<h6>Popup</h6>
+<h6 id="popup">Popup</h6>
 <div class="row">
     <div class="st-col col-12 col-sm st-module">
         <p>The popup proxy can be added to any nestable component, and it'll make a popup window appear when the user clicks on the component.</p>
@@ -153,7 +166,7 @@
         </q-btn>
     </div>
 </div>
-<h6>Table</h6>
+<h6 id="table">Table</h6>
 <div class="row">
     <div class="st-col col-12 col-sm st-module">
         <p>The StippleTable component has built-in browser-side pagination, server-side pagination, and integrated search text field. Any DataFrame can be displayed as a table by wrapping it into a DataTable object.<br></p>
@@ -164,7 +177,7 @@
         <st-table id="i0n3h" :dense="true" server_side_event="request" :loading="false" :data_table="dt1"></st-table>
     </div>
 </div>
-<h6>Table with server-side pagination</h6>
+<h6 id="table-server-side">Table with server-side pagination</h6>
 <div class="row">
     <div class="st-col col-12 col-sm st-module">
         <p>Instead of loading all data at once, this table loads data in chunks as the user navigates through pages. The pagination is managed by an event handler in the Julia code.</p>
