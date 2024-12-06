@@ -1,4 +1,5 @@
-<nav>
+<nav></nav>
+<div id="iifltv" class="container">
     <div id="iwo8" class="st-gap-lg">
         <div id="inlv"><a href="#reactive-variables">Reactive variables</a></div>
         <div id="ih1yf"><a href="#inputs">Inputs</a></div>
@@ -8,8 +9,10 @@
         <div id="ivr34"><a href="#popup">Popup</a></div>
         <div id="io4tr"><a href="#table">Table</a></div>
         <div><a href="#table-server-side">Table with server-side pagination</a></div>
-    </div>
-</nav>
+    </div><a id="i2uahy" href="https://github.com/BuiltWithGenie/GenieBuilderTutorial">
+        <q-img id="i856vi" src="/github-logo.png" width="25px" height="25px"></q-img>
+    </a>
+</div>
 <h6 id="reactive-variables">Reactive variables</h6>
 <div id="i6sl" class="row">
     <div class="st-col col-12 col-sm st-module">
@@ -65,7 +68,7 @@
             </q-icon>
         </q-input>
         <q-date id="ianlp" class="q-mt-md" mask="YYYY-MM-DD" v-model="date_text"></q-date>
-        <p>Note: the date field has a date picker nested inside of it. To configure its binding in the visual editor, go to the Layers panel and expand the component tree.</p>
+        <p>Note: the date field has a date picker nested inside of it. To configure its binding in the visual editor, go to the Layers panel and expand the component treee.</p>
     </div>
     <div id="iioc3" class="st-col col-12 col-sm st-module">
         <q-input id="ijmre" :clearable="true" :filled="true" label="Pick a time" v-model="time_text">
@@ -89,7 +92,7 @@
     <div class="st-col col-12 col-sm st-module">
         <plotly id="id8oh" data="W3siZ2J0eXBlIjoiTGluZSBDaGFydCIsIngiOiIkX3t4fSIsInkiOiIkX3t5fSIsInR5cGUiOiJzY2F0dGVyIiwibW9kZSI6ImxpbmVzIiwibmFtZSI6IlRyYWNlIn1d" config="e30=" layout="eyJ0aXRsZSI6Ik15IENoYXJ0In0="></plotly>
     </div>
-    <div class="st-col st-module col-2">
+    <div id="issgfr" class="st-module">
         <q-btn id="i7c08" color="primary" label="Add data" v-on:click="add_data = true"></q-btn>
         <q-btn id="is8jf" class="q-mt-xl" color="primary" label="Reset data" v-on:click="reset_data = true"></q-btn>
     </div>
@@ -101,9 +104,9 @@
 </div>
 <div class="row">
     <div class="st-col col-12 col-sm st-module">
-        <plotly id="ig5pq" :data="traces" :layout="layout" config="eyJhdXRvc2l6YWJsZSI6dHJ1ZSwiZGlzcGxheWxvZ28iOnRydWUsInNjcm9sbFpvb20iOnRydWUsImVkaXRhYmxlIjp0cnVlLCJkaXNwbGF5TW9kZUJhciI6dHJ1ZX0="></plotly>
+        <plotly id="ig5pq" :data="traces" config="eyJhdXRvc2l6YWJsZSI6dHJ1ZSwiZGlzcGxheWxvZ28iOnRydWUsInNjcm9sbFpvb20iOnRydWUsImVkaXRhYmxlIjp0cnVlLCJkaXNwbGF5TW9kZUJhciI6dHJ1ZX0=" layout="eyJ0aXRsZSI6Ik15IENoYXJ0IiwibGVnZW5kIjp7Im9yaWVudGF0aW9uIjoiaCIsIngiOiIwIiwieSI6IjEuMSJ9LCJ4YXhpcyI6eyJ0aXRsZSI6eyJ0ZXh0IjoieCJ9fSwieWF4aXMiOnsidGl0bGUiOnsidGV4dCI6InkifX19"></plotly>
     </div>
-    <div class="st-col st-module col-2">
+    <div id="it5lvc" class="st-col st-module col-2">
         <q-badge icon="danger" id="ixdzcz" color="primary" label="Number of traces"></q-badge>
         <q-slider id="imoco" color="primary" :label="true" :max="10" :min="1" :step="1" v-model="N_traces"></q-slider>
     </div>

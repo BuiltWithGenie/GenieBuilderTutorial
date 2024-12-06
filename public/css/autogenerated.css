@@ -10,7 +10,6 @@
 #iwo8 {
   display:flex;
   flex-wrap:wrap;
-  margin:11px 0px 17px 0px;
 }
 
 #inlv {
@@ -39,5 +38,22 @@
 
 #io4tr {
   margin-right:10px;
+}
+
+#iifltv {
+  display:flex;
+  justify-content:space-between;
+  padding-top:18px;
+  padding-right:0px;
+  padding-bottom:0px;
+  padding-left:0px;
+}
+
+#it5lvc {
+  max-width:20%;
+}
+
+#issgfr {
+  max-width:20%;
 }
 

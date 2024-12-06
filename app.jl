@@ -99,7 +99,8 @@ const my_constant = 4
     # You can also define the traces and layout of the plot and use the Bound Plot component
     # Useful when you have a dynamic number of traces
     @out traces = [scatter(x=collect(1:10),y=randn(10)),scatter(x=collect(1:10),y=randn(10))] # always an array of traces
-    @out layout = PlotlyBase.Layout(title="My Plot", xaxis_title="x", yaxis_title="y")
+    # The layout can also be configured in the Layout tab in the plot's properties in the visual editor
+    # @out layout = PlotlyBase.Layout(title="My Plot", xaxis_title="x", yaxis_title="y")
     @in N_traces = 1
     # Adding N traces in a loop
     @onchange N_traces begin
