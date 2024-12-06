@@ -19,6 +19,7 @@ Stipple.Layout.add_css("/css/my_css.css")
 Stipple.Layout.add_script("https://cdn.tailwindcss.com")
 # Some components have helper functions for their configuration
 StippleUI.Tables.set_default_rows_per_page(20)
+# Configure table server-side pagination
 StippleUI.Tables.set_max_rows_client_side(100)
 
 # == Data import and definitions ==
@@ -42,6 +43,7 @@ const my_constant = 4
     # Reactive handlers watch a variable and execute a block of code when
     # its value changes
     @onchange A, B begin
+        @notify("Handler triggered.")
         C = data_analysis(A, B) # data_analysis is defined in the lib folder
     end
     # You can also trigger handlers from another handler by changing the associated variable
@@ -129,7 +131,8 @@ const my_constant = 4
     @out loading_table = false
     # The dt2_request event is triggered when the pagination button is clicked on the table
     # This @event will update the table with the new page
-    @event dt1_request begin
+    @event request begin
+      @notify("Filtering table")
       loading_table = true
       dt2 = @paginate(dt2, data)
       @push dt2
